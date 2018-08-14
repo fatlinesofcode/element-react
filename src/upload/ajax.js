@@ -10,7 +10,7 @@ function getError(action, option, xhr) {
 
   const err = new Error(msg);
   err.status = xhr.status;
-  err.method = 'post';
+  err.method = 'put';
   err.url = action;
   return err;
 }
@@ -67,7 +67,7 @@ export default function upload(option) {
     option.onSuccess(getBody(xhr));
   };
 
-  xhr.open('post', action, true);
+  xhr.open('put', action, true);
 
   if (option.withCredentials && 'withCredentials' in xhr) {
     xhr.withCredentials = true;
